@@ -1,4 +1,4 @@
-# OS Project II: Android Scheduler
+# OS Project II: Android Kernel Scheduler
 
 ## 1.  Overview
 
