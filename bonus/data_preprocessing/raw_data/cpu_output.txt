@@ -1,0 +1,209 @@
+SCHED_FIFO:
+PROC_COUNT = 20
+real     6.90
+user     5.52
+sys      0.05
+PROC_COUNT = 25
+real     7.86
+user     6.41
+sys      0.04
+PROC_COUNT = 30
+real     9.24
+user     7.58
+sys      0.04
+PROC_COUNT = 35
+real    11.06
+user     8.95
+sys      0.08
+PROC_COUNT = 40
+real    13.59
+user    10.90
+sys      0.06
+PROC_COUNT = 45
+real    15.14
+user    12.28
+sys      0.06
+PROC_COUNT = 50
+real    17.63
+user    14.20
+sys      0.08
+PROC_COUNT = 55
+real    17.67
+user    14.13
+sys      0.14
+PROC_COUNT = 60
+real    20.77
+user    16.58
+sys      0.18
+PROC_COUNT = 65
+real    21.57
+user    17.26
+sys      0.11
+PROC_COUNT = 70
+real    22.87
+user    18.33
+sys      0.15
+PROC_COUNT = 75
+real    24.87
+user    19.95
+sys      0.13
+PROC_COUNT = 80
+real    26.56
+user    21.44
+sys      0.11
+PROC_COUNT = 85
+real    29.72
+user    23.82
+sys      0.24
+PROC_COUNT = 90
+real    29.73
+user    23.80
+sys      0.14
+PROC_COUNT = 95
+real    30.45
+user    24.33
+sys      0.15
+PROC_COUNT = 100
+real    31.15
+user    25.04
+sys      0.11
+
+SCHED_RR:
+PROC_COUNT = 20
+real     6.29
+user     5.04
+sys      0.05
+PROC_COUNT = 25
+real     8.14
+user     6.66
+sys      0.04
+PROC_COUNT = 30
+real     9.88
+user     7.98
+sys      0.11
+PROC_COUNT = 35
+real    11.78
+user     9.51
+sys      0.06
+PROC_COUNT = 40
+real    13.81
+user    11.04
+sys      0.09
+PROC_COUNT = 45
+real    14.71
+user    11.82
+sys      0.09
+PROC_COUNT = 50
+real    16.50
+user    13.13
+sys      0.08
+PROC_COUNT = 55
+real    18.18
+user    14.69
+sys      0.08
+PROC_COUNT = 60
+real    20.65
+user    16.53
+sys      0.06
+PROC_COUNT = 65
+real    21.02
+user    16.82
+sys      0.07
+PROC_COUNT = 70
+real    22.67
+user    18.18
+sys      0.10
+PROC_COUNT = 75
+real    24.70
+user    19.77
+sys      0.13
+PROC_COUNT = 80
+real    27.07
+user    21.78
+sys      0.09
+PROC_COUNT = 85
+real    28.97
+user    23.22
+sys      0.11
+PROC_COUNT = 90
+real    30.37
+user    24.29
+sys      0.09
+PROC_COUNT = 95
+real    31.67
+user    25.29
+sys      0.18
+PROC_COUNT = 100
+real    32.64
+user    26.12
+sys      0.13
+
+SCHED_WRR:
+PROC_COUNT = 20
+real     5.86
+user     5.52
+sys      0.07
+PROC_COUNT = 25
+real     7.42
+user     6.92
+sys      0.05
+PROC_COUNT = 30
+real    10.16
+user     9.17
+sys      0.06
+PROC_COUNT = 35
+real    10.58
+user     9.50
+sys      0.07
+PROC_COUNT = 40
+real    11.43
+user    10.71
+sys      0.13
+PROC_COUNT = 45
+real    12.97
+user    12.20
+sys      0.16
+PROC_COUNT = 50
+real    15.67
+user    15.01
+sys      0.19
+PROC_COUNT = 55
+real    16.18
+user    14.70
+sys      0.15
+PROC_COUNT = 60
+real    17.41
+user    16.55
+sys      0.14
+PROC_COUNT = 65
+real    18.21
+user    17.56
+sys      0.13
+PROC_COUNT = 70
+real    19.91
+user    19.08
+sys      0.16
+PROC_COUNT = 75
+real    21.15
+user    20.10
+sys      0.13
+PROC_COUNT = 80
+real    22.28
+user    21.52
+sys      0.10
+PROC_COUNT = 85
+real    23.65
+user    22.41
+sys      0.17
+PROC_COUNT = 90
+real    26.12
+user    24.89
+sys      0.19
+PROC_COUNT = 95
+real    26.65
+user    25.58
+sys      0.22
+PROC_COUNT = 100
+real    28.37
+user    26.68
+sys      0.23
