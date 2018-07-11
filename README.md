@@ -266,7 +266,7 @@ python3 dataPreprocess.py
 
 ### 3.1  /arch/arm/configs/goldfish_armv7_defconfig
 
-####3.1.1  Configure WRR_GROUP_SCHED
+#### 3.1.1  Configure WRR_GROUP_SCHED
 
 ```c
 CONFIG_WRR_GROUP_SCHED=y
@@ -276,7 +276,7 @@ In this file, we enable the configuration of WRR group scheduling to activate wr
 
 ### 3.2  /include/linux/sched.h
 
-####3.2.1  Define SCHED_WRR 
+#### 3.2.1  Define SCHED_WRR 
 
   ```c
 #define SCHED_WRR       6 
@@ -316,7 +316,7 @@ This part is to define the scheduling entity for WRR policy, which acts as an ab
 #define BACKGROUP	"/bg_non_interactive"
 ```
 
-####3.2.5  Define time slice for foreground and background groups 
+#### 3.2.5  Define time slice for foreground and background groups 
 
 ```c
 #define WRR_FORE_TIMESLICE		(100 * HZ / 1000)
@@ -359,7 +359,7 @@ extern void free_wrr_sched_group(struct task_group *tg);
 extern int alloc_wrr_sched_group(struct task_group *tg, struct task_group *parent);
 ```
 
-####3.3.4  Define wrr_rq struct 
+#### 3.3.4  Define wrr_rq struct 
 
 ```c
 struct wrr_rq {
@@ -384,7 +384,7 @@ struct wrr_rq wrr;
 #endif
 ```
 
-####3.3.6  Declare some extern variables
+#### 3.3.6  Declare some extern variables
 
 ```c
 extern const struct sched_class wrr_sched_class;
@@ -441,7 +441,7 @@ case SCHED_WRR:
 
 In this part, we add the definition of max priority for WRR scheduling to prepare for the calls in test file and benchmark file.
 
-####3.4.5  Add init_wrr_rq function 
+#### 3.4.5  Add init_wrr_rq function 
 
 ```c
 void init_wrr_rq(struct wrr_rq *wrr_rq)
@@ -468,7 +468,7 @@ if (!alloc_wrr_sched_group(tg, parent))
 
 ###  3.5  /kernel/sched/rt.c
 
-####3.5.1  Revise rt_sched_class 
+#### 3.5.1  Revise rt_sched_class 
 
 ```c
 const struct sched_class rt_sched_class = {
@@ -487,7 +487,7 @@ const struct sched_class rt_sched_class = {
 
 In this part, we modify the next scheduled class of `rt_sched_class` to `wrr_sched_class` , which means we eventually change the priority order between different scheduled classes (different policies) , making `wrr_sched_class` right follow `rt_sched_class` while ahead of `fair_sched_class`. Therefore, when using `for_each_class` function to traverse all scheduled classes, it observes the newly modifed order to pick next task to execute, that is, the scheduler core will attempt to schedule all runnable tasks from each class before moving on to the next class in the hierarchy.
 
-###3.6  /kernel/sched/Makefile  
+### 3.6  /kernel/sched/Makefile  
 
 #### 3.6.1  Link wrr.o
 
@@ -650,9 +650,9 @@ This program is mainly used to test the basic part of this project. Specifically
 #### 6.1.1  Process types
 
 - **CPU-Bound Process:** A process that primarily requires use of the CPU in order to complete. The speed and availability of the CPU is the limiting factor determining the run time of such a process.
-- **IO-Bound Process: **A process that primarily relies on completing I/O requests in order to complete. The run time of an I/O bound process is primarily determined by the amount of time it must spend waiting for I/O resources to become available.
+- **IO-Bound Process:** A process that primarily relies on completing I/O requests in order to complete. The run time of an I/O bound process is primarily determined by the amount of time it must spend waiting for I/O resources to become available.
 
-####6.1.2  Techniques  
+#### 6.1.2  Techniques  
 
 - `fork()` - Provide a way for us to create new child processes that act as the copy of original process.
 - `time ` - Provide a way for us to acquire the execution time of a program.
@@ -667,7 +667,7 @@ This program is mainly used to test the basic part of this project. Specifically
 
 ### 6.2  Design
 
-####6.2.1  Benchmark for CPU-Bound
+#### 6.2.1  Benchmark for CPU-Bound
 
 To create CPU-Bound processes, we design a Monte-Carlo Method to generate an approximation of $\pi$ . All child processes that fork from the parent should execute the approximation program once under a specific kind of scheduling policy. To better control the scale of the program, we provide the interface for user to choose proper iteration times and forked processes to benchmark different scheduling policies through command-line parsing. Note that the specific compiling process is included in **README.md**.
 
@@ -772,7 +772,7 @@ Clearly, we can see that SCHED_WRR has a remarkable improvement to RR/FIFO as fo
 
 #### 6.3.3  Benchmark for Mixed
 
-**TASK I: **
+**TASK I:**
 
 **ITERATIONS = 100000   BLOCK_SIZE = 2000 Bytes   TRAN_SIZE = 5000000 Bytes   PROC_COUNT = 20**
 
@@ -786,7 +786,7 @@ time -p ./test_mixed 100000 SCHED_FIFO/SCHED_RR/SCHED_WRR 20 2000 5000000 /data/
 |   SCHED_RR    |   15.13    |    6.39    |     5.94     |
 | **SCHED_WRR** | **13.40**  |    7.27    |     5.38     |
 
-**TASK II: **
+**TASK II:**
 
 **ITERATIONS = 100000   BLOCK_SIZE = 2000 Bytes   TRAN_SIZE = 5000000 Bytes   PROC_COUNT = 50**
 
@@ -801,7 +801,7 @@ time -p ./test_mixed 100000 SCHED_FIFO/SCHED_RR/SCHED_WRR 50 2000 5000000 /data/
 | **SCHED_WRR** | **30.58**  |   19.13    |    10.73     |
 
 
-**TASK III: **
+**TASK III:**
 
 **ITERATIONS = 100000   BLOCK_SIZE = 2000 Bytes   TRAN_SIZE = 5000000 Bytes   PROC_COUNT = 100**
 
@@ -831,4 +831,4 @@ Similarly, we can see that SCHED_WRR has a great improvement to RR/FIFO as for M
 
 ![5](./src/mixed.PNG)
 
-​	To better reveal the relationships between three scheduling policies, we create the above three graphs to visualize the performance of these three policies under a sequence of process numbers. Obviously, **SCHED_WRR performs better than the other two scheduling policies in CPU-Bound, IO-bound and Mixed tasks.** 
+​To better reveal the relationships between three scheduling policies, we create the above three graphs to visualize the performance of these three policies under a sequence of process numbers. Obviously, **SCHED_WRR performs better than the other two scheduling policies in CPU-Bound, IO-bound and Mixed tasks.** 
