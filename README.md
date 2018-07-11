@@ -1,4 +1,4 @@
-# OS-Project2 Report
+# OS Project II: Android Scheduler
 
 ## 1.  Overview
 
